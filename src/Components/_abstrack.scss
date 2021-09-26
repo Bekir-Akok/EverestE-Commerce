@@ -1,0 +1,24 @@
+/* MIXIN MEDIA QUERY*/
+
+@mixin media ($screensize) {
+    
+    @if ($screensize == xxlarge) {
+        @media(max-width: 1530px) { @content };
+    }
+
+    @if ($screensize == xlarge) {
+        @media(max-width: 1280px) { @content };
+    }
+
+    @if ($screensize == large) {
+        @media(max-width: 992px) { @content };
+    }
+
+    @if ($screensize == medium) {
+        @media(max-width: 768px) { @content };
+    }
+
+    @if ($screensize == small) {
+        @media(max-width: 576px) { @content };
+    }
+}

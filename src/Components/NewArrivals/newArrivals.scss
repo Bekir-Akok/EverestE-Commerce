@@ -1,0 +1,62 @@
+@import '../abstrack';
+
+.new-arrivals-container{
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    margin: 100px auto;
+
+    .new-arrivals-products{
+        display: flex !important;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    
+    
+        .new-arrivals-image-wrapper{
+            color:#91362a;
+            position: relative;
+
+            img{
+                @include media(small){
+                    width: 90%;
+                    margin: 0 auto;
+                }
+            }
+    
+            h6{
+                position: absolute;
+                top: -20px;
+                left: 5px;
+
+                @include media(small) {
+                    left: 20px;
+                }
+            }
+        }
+    
+        h4{
+            text-align: start;
+            color:#4e4c4b;
+        }
+    }
+}
+
+/*Slick Slider Optimizer*/
+
+    .slick-prev {
+      left: 2% ;
+      top: 40%;
+      z-index: 1;
+        &::before{
+            color:#4e4c4b;
+        }
+    }
+    .slick-next {
+        right: 2% ;
+        top: 40%;
+        z-index: 1;
+          &::before{
+              color:#4e4c4b;
+          }
+      }

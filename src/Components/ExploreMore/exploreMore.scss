@@ -1,0 +1,92 @@
+@import '../abstrack';
+
+.explore-container{
+    width: 100%;
+    margin: 80px 0;
+    h1{
+        font-size: 24px;
+        font-weight: 700;
+        color:#000;
+    }
+
+    .explore-wrapper{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        @include media(large) {
+            flex-direction: column;
+        }
+
+    .explore-card{
+        width: 33%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+
+        @include media(large) {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        img{
+            width: 450px;
+            object-fit: cover;
+
+            @include media(xxlarge) {
+                width: 300px;
+            }
+            @include media(large) {
+                width: 90%;
+            }
+        }
+    
+    
+        &-content{
+            width: 80%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-direction: column;
+            padding-left: 50px;
+
+            @include media(xxlarge) {
+                width: 70%;
+            }
+            @include media(large) {
+                width: 90%;
+            }
+    
+                p{  
+                    color: #4c4c4b;
+                    font-size: 20px;
+                    margin-top: 10px;
+                    @include media(xxlarge) {
+                        font-size: 16px;
+                    }
+                    @include media(xlarge) {
+                        font-size: 14px;
+                        margin-top: 0;
+                    }
+                }
+        
+                button{
+                    background-color: transparent;
+                    border: none;
+                    border-bottom:1px solid #000;
+                    outline: none;
+                    font-size:16px;
+                    margin-top: 10px;
+                    @include media(xxlarge) {
+                        font-size: 14px;
+                    }
+                    @include media(xlarge) {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+    }
+}

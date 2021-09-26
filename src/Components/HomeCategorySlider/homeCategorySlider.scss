@@ -1,0 +1,35 @@
+.home-category-slider{
+    width: 100%;
+    margin:100px 0;
+    position: relative;
+
+    img{
+        width: 600px;
+        height: 400px;
+        object-fit: cover;
+        }
+
+    &-content{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        h1{
+            color:#fff;
+            font-size: 28px;
+        }
+
+        button{
+            background-color:transparent;
+            color:#fff;
+            border: none;
+            outline: none; 
+            border-bottom: 1px solid #fff ;
+        }
+    }
+
+}

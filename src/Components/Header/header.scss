@@ -1,0 +1,39 @@
+.header-container{
+    width: 100%;
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    .header-wrapper{
+
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 30px;
+
+        .header-logo{
+            width: 100%;
+            img{
+                width: 200px;
+                object-fit: cover;
+            }
+        }
+        
+        .header-menu{
+            width: 100%;
+
+            ul{
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                width: 100%;
+
+                li{
+                    list-style:none;
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+}

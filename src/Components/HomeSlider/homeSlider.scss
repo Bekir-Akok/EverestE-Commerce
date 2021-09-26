@@ -1,0 +1,177 @@
+  @import '../abstrack';
+
+  .slider-wrapper{
+        position: relative;
+
+        .slider-content{
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0,-50%);
+            width: 40%;
+            padding-left: 100px;
+            color:#fff;
+            @include media(large) {
+                padding-left: 10px;
+              }
+            @include media(medium) {
+                width: 100%;
+              }
+
+            h5{
+                font-size: 18px;
+                @include media(large) {
+                    font-size: 16px;
+                  }
+                @include media(small) {
+                    font-size: 12px;
+                  }
+            }
+
+            h1{
+                font-size: 90px;
+                font-weight: 700;
+                line-height: .8;
+                margin-top: 30px ;
+
+                @include media(large) {
+                    font-size: 60px;
+                  }
+                @include media(small) {
+                    font-size: 40px;
+                    margin-top: -10px;
+                  }
+            }
+            
+            p{
+                font-size: 17px;
+                font-weight: 500;
+                margin-top: 30px ;
+
+                @include media(large) {
+                    font-size: 15px;
+                    margin-top: 10px;
+                  }
+            }
+
+            .slider-wrapper-buttons{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                button{
+                    background-color: #fff;
+                    color:#666;
+                    outline: none;
+                    border: none;
+                    width: 180px;
+                    height: 60px;
+                    margin-left:5px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    margin-top: 50px;
+
+                    @include media(medium) {
+                        width: 120px;
+                        height: 40px;
+                      }
+                }
+            }
+        }
+
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .slider-content-1{
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0,-50%);
+            width: 40%;
+            padding-left: 100px;
+            color:#000;
+            @include media(large) {
+                padding-left: 10px;
+              }
+              @include media(medium) {
+                width: 100%;
+              }
+
+            h5{
+                font-size: 22px;
+                @include media(large) {
+                    font-size: 18px;
+                  }
+                @include media(small) {
+                    font-size: 12px;
+                  }
+            }
+
+            h1{
+                font-size: 90px;
+                font-weight: 700;
+                line-height: .8;
+                margin-top: 30px ;
+
+                @include media(large) {
+                    font-size: 60px;
+                  }
+                @include media(small) {
+                    font-size: 40px;
+                    margin-top: 10px;
+                  }
+            }
+            
+            p{
+                font-size: 17px;
+                font-weight: 500;
+                margin-top: 30px ;
+                @include media(large) {
+                    font-size: 15px;
+                    margin-top: 10px;
+                  }
+            }
+
+            .slider-wrapper-buttons-1{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                button{
+                    background-color: #000;
+                    color:#fff;
+                    outline: none;
+                    border: none;
+                    width: 160px;
+                    height: 60px;
+                    margin-left:5px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    margin-top: 50px;
+                    @include media(medium) {
+                        width: 120px;
+                        height: 40px;
+                      }
+                }
+            }
+        }
+    }
+
+    .slick-slide {
+        @include media(medium) {
+            height: 500px;
+          }
+     }
+    .slick-slide img{
+        @include media(medium) {
+            height: 500px;
+          }
+     }
