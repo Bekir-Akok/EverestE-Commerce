@@ -4,11 +4,11 @@ import NewArrivals from '../../Components/NewArrivals/NewArrivals';
 import HomeHeroMedia from '../../Components/HomeHeroMedia/HomeHeroMedia';
 import HomeCategorySlider from '../../Components/HomeCategorySlider/HomeCategorySlider';
 import ExploreMore from '../../Components/ExploreMore/ExploreMore';
-import Layout from '../Layout';
+import Layout from '../../Layout/Layout';
 
 const Home = () => {
     return (
-        <div>   
+        <>   
             <Layout/>
             <HomeSlider/>
             <NewArrivals title="New Arrivals"/>
@@ -26,7 +26,7 @@ const Home = () => {
                 button="TAKE A MOMENT"
                 backgroundImage="https://www.burton.com/dw/image/v2/AADF_PRD/on/demandware.static/-/Library-Sites-shared-content/default/dwa850f36d/FW21/W21-Jake-Page/21W-JakePage-FullBleedHero-01-mobile-2x.jpg?sw=768&sfrm=jpg&q=100"/> 
             <Layout/>
-        </div>
+        </>
     )
 }
 

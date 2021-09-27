@@ -1,28 +1,40 @@
-import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import "./header.scss";
-import logo from "../../assets/LOGO.png";
-import {Link} from "react-router-dom";
+import everest from "../../assets/LOGO.png";
+import { useHistory } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
+  
 const Header = () => {
+
+    const menuData = [
+        {categories: "Women" , title: "Women"}, 
+        {categories: "Man" , title: "Men"}, 
+        {categories: "Bag" , title: "Accessory"}, 
+    ]
+
+    let history = useHistory()
+
     return (
         <div className="header-container">
             <div className="header-wrapper">
                 <div className="header-logo">
-                    <img src={logo} alt="" />
+                    <Link to="/"><img src={everest} alt="" /></Link>
                 </div>
                 <SearchBar/>
                 <div className="header-menu">
                     <ul>
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/woman" >Woman</Link></li>
-                        <li><Link>Man</Link></li>
-                        <li><Link>Kids</Link></li>
+                        {
+                            menuData.map((x , i) =>{
+                              return <li key={i} onClick={() => history.push(`/categorypage/${x.categories}`)}>{x.title}</li>
+                            })
+                        }
                     </ul>
                 </div>
             </div>
         </div>
     )
 }
-
+ 
 export default Header
