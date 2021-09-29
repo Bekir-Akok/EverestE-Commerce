@@ -60,8 +60,8 @@ const NewArrivals = props => {
             {
                 productsLoading ? (
                     <Slider {...settings}>
-                    {products.map(product => (
-                        <div className="new-arrivals-products">
+                    {products.map((product , i) => (
+                        <div className="new-arrivals-products" key={i}>
                             <div className="new-arrivals-image-wrapper">
                                 <img src={product.imgUrl} alt="" />
                                 <h6>NEW</h6>

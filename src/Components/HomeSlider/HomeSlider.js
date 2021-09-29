@@ -2,7 +2,12 @@ import React from 'react';
 import Slider from "react-slick";
 import './homeSlider.scss';
 
-const HomeSlider = () => {
+const HomeSlider = ({ slider, slider_1,
+    subtitle, subtitle_1,
+    title, title_1,
+    description, description_1,
+    button, button_1, button_2,
+    color, background, buttonColor }) => {
 
     const settings = {
         dots: false,
@@ -13,38 +18,47 @@ const HomeSlider = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 2000,
         autoplaySpeed: 4000,
-        cssEase: "linear"
-      };
-
+        cssEase: "linear",
+        adaptiveHeight: true
+    };
 
     return (
         <>
             <Slider {...settings}>
-                <div className="slider-wrapper">
-                    <img src="https://www.burton.com/dw/image/v2/AADF_PRD/on/demandware.static/-/Library-Sites-shared-content/default/dw61643835/S22/S22-AK/21SS-AK-InsetHero-BG.jpg" alt=""/>
-                    <div className="slider-content">
-                        <h5>[ak]® Spring Collection</h5>
-                        <h1>Non-Stop Performance</h1>
-                        <p>For [ak], there is no off-season. Push your limits year-round with highly technical gear that outperforms in any terrain or condition.</p>
-                        <div className="slider-wrapper-buttons">
-                            <button>Explore[AK]</button>
-                            <button>Shop Now</button>
+                {
+                    slider === undefined ? null : (
+                        <div className="slider-wrapper">
+                        <img src={slider} alt="" />
+                        <div className="slider-content">
+                            <h5>{subtitle}</h5>
+                            <h1>{title}</h1>
+                            <p>{description}</p>
+                            <div className="slider-wrapper-buttons">
+                                <button>{button}</button>
+                                <button>{button_1}</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="slider-wrapper">
-                    <img src="https://www.burton.com/dw/image/v2/AADF_PRD/on/demandware.static/-/Library-Sites-shared-content/default/dw687d44e0/S22/S22-Spring-New-Arrivals/21SS-Spring-NewArrivals-Mens-InsetHero-BG-2x.jpg?sw=1600&amp;sfrm=jpg&amp;q=100" alt=""/>
-                    <div className="slider-content-1">
-                        <h5>Fresh Gear</h5>
-                        <h1>New Arrivals</h1>
-                        <p>Ditch the heavy layers and get ready for spring with breathable layers and waterproof gear.</p>
-                        <div className="slider-wrapper-buttons-1">
-                            <button>Shop Now</button>
+                    )
+                }
+                
+                {
+                    slider_1 === undefined ? null : (
+                        <div className="slider-wrapper">
+                            <img src={slider_1} alt="" />
+                            <div className="slider-content-1" style={{color: color}}>
+                                <h5>{subtitle_1}</h5>
+                                <h1>{title_1}</h1>
+                                <p>{description_1}</p>
+                                <div className="slider-wrapper-buttons-1">
+                                    <button style={{color: buttonColor , backgroundColor: background ,}}>{button_2}</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    )
+                }
+
             </Slider>
         </>
     )

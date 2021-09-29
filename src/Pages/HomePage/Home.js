@@ -10,7 +10,19 @@ const Home = () => {
     return (
         <>   
             <Layout/>
-            <HomeSlider/>
+            <HomeSlider 
+                slider="https://www.burton.com/dw/image/v2/AADF_PRD/on/demandware.static/-/Library-Sites-shared-content/default/dw61643835/S22/S22-AK/21SS-AK-InsetHero-BG.jpg"
+                subtitle="[ak]® Spring Collection"
+                title="Non-Stop Performance"
+                description="For [ak], there is no off-season. Push your limits year-round with highly technical gear that outperforms in any terrain or condition."
+                button="Explore[AK]"
+                button_1="Shop Now"
+                slider_1="https://www.burton.com/dw/image/v2/AADF_PRD/on/demandware.static/-/Library-Sites-shared-content/default/dw687d44e0/S22/S22-Spring-New-Arrivals/21SS-Spring-NewArrivals-Mens-InsetHero-BG-2x.jpg?sw=1600&amp;sfrm=jpg&amp;q=100"
+                subtitle_1="Fresh Gear"
+                title_1="New Arrivals"
+                description_1="Ditch the heavy layers and get ready for spring with breathable layers and waterproof gear."
+                button_2="Shop Now"
+            />
             <NewArrivals title="New Arrivals"/>
             <HomeCategorySlider/>
             <HomeHeroMedia 

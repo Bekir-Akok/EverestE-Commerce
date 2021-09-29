@@ -7,7 +7,6 @@ const ExploreMore = () => {
 
     const dispatch = useDispatch();
     const components = useSelector(state => state.requestReducer.components)
-    const componentsLoading = useSelector(state => state.requestReducer.componentsLoading)
 
     useEffect(() => {
         dispatch(getComponents())
@@ -15,15 +14,13 @@ const ExploreMore = () => {
 
     return (
         <>
-            {
-                componentsLoading ? (
                     <div className="explore-container">
                         <h1>{components.bigTitle}</h1>
                         <div className="explore-wrapper">
                             {
                                 components.map((card, i) => (
-                                    <>
-                                        <div className="explore-card" key={i}>
+                                    <div key={i}>
+                                        <div className="explore-card">
                                             <img src={card.imgUrl} alt="" />
                                             <div className="explore-card-content">
                                                 <h1>{card.title}</h1>
@@ -31,13 +28,11 @@ const ExploreMore = () => {
                                                 <button>{card.button}</button>
                                             </div>
                                         </div>
-                                    </>
+                                    </div>
                                 ))
                             }
                         </div>
                     </div>
-                ) : <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" alt="" />
-            }
 
         </>
     )

@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import './card.scss';
 
 const Card = ({product}) => {
+
+    let history = useHistory()
+
     return (
         <>
-            <div className="card">
+            <div className="card" onClick={() => history.push(`/productpage/${product.id}`)}>
                 <div className="card-img">
                     <img src={product.imgUrl} alt="" />
                 </div>
@@ -11,9 +16,10 @@ const Card = ({product}) => {
                     <h5>{product.name}</h5>
                     <p>${product.price}</p>
                 </div>
+                <button type="button">ADD TO CART</button>
             </div>
         </>
     )
 }
 
-export default Card
+export default Card;

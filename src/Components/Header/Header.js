@@ -8,9 +8,9 @@ import {Link} from 'react-router-dom';
 const Header = () => {
 
     const menuData = [
-        {categories: "Women" , title: "Women"}, 
-        {categories: "Man" , title: "Men"}, 
-        {categories: "Bag" , title: "Accessory"}, 
+        {categories: "Women" , category: "Women"}, 
+        {categories: "Man" , category: "Men"}, 
+        {categories: "Bag" , category: "Accessories & Bags"}, 
     ]
 
     let history = useHistory()
@@ -27,7 +27,7 @@ const Header = () => {
                         <li><Link to="/">Home</Link></li>
                         {
                             menuData.map((x , i) =>{
-                              return <li key={i} onClick={() => history.push(`/categorypage/${x.categories}`)}>{x.title}</li>
+                              return <li style={{cursor: "pointer"}} key={i} onClick={() => history.push(`/categorypage/${x.categories}`)}>{x.category}</li>
                             })
                         }
                     </ul>
