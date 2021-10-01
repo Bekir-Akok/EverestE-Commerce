@@ -1,19 +1,23 @@
 import { useState } from 'react';
 import { SRLWrapper } from "simple-react-lightbox";
 import { RiStarSFill } from 'react-icons/ri';
+import { AiTwotoneHeart } from 'react-icons/ai';
 import './productContent.scss';
 
 const ProductContent = ({ filterProduct }) => {
-
-
 
     const stars = [
         {}, {}, {}, {}, {}
     ]
 
     const [color, setColor] = useState();
-    const buttons = [
+    const colors = [
         { color: "lightblue" }, { color: "bisque" }, { color: "black" }, { color: "grey" }
+    ]
+
+    const [size, setSize] = useState();
+    const sizes = [
+        { size: "XS" }, { size: "S" }, { size: "M" }, { size: "L" }, { size: "XL" }
     ]
 
     return (
@@ -43,25 +47,44 @@ const ProductContent = ({ filterProduct }) => {
                                                 <h6 style={{ marginLeft: "15px" }}>22 Reviews</h6>
                                             </div>
                                         </div>
-                                        <div className="product-color">
-                                            <h6>
+                                        <div className="product-stats">
+                                            <div className="product-color">
+                                                <h6>
+                                                    {
+                                                        color === undefined ? "Color: Select a color" : `Color: ${color}`
+                                                    }
+
+                                                </h6>
+                                                <div className="product-buttons">
+                                                    {
+                                                        colors.map(((color, i) => {
+                                                            return (
+                                                                <input key={i} type="button" style={{ backgroundColor: color.color }}
+                                                                    onClick={() => setColor(color.color)} ></input>
+                                                            )
+                                                        }))
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div className="product-size">
+                                                <h6>
+                                                    {
+                                                        size === undefined ? "Size: Select a size" : `Size: ${size}`
+                                                    }
+                                                </h6>
                                                 {
-                                                    color === undefined ? null : `color: ${color}`
-                                                }
-                                                
-                                            </h6>
-                                            <div className="product-buttons">
-                                                {
-                                                    buttons.map(((button, i) => {
+                                                    sizes.map((size, i) => {
                                                         return (
-                                                            <input key={i} type="button" style={{ backgroundColor: button.color }}
-                                                                onClick={() => setColor(button.color)} ></input>
+                                                            <button key={i} onClick={() => setSize(size.size)}>{size.size}</button>
                                                         )
-                                                    }))
+                                                    })
                                                 }
                                             </div>
+                                            <div className="product-buttons">
+                                                <button>ADD TO CARD</button>
+                                                <button className="fav-button"><AiTwotoneHeart /></button>
+                                            </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

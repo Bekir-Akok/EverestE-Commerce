@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getComponents } from '../../Redux/Actions/action';
 import './exploreMore.scss';
 
-const ExploreMore = () => {
+const ExploreMore = ({ bigTitle }) => {
 
     const dispatch = useDispatch();
     const components = useSelector(state => state.requestReducer.components)
@@ -14,25 +14,23 @@ const ExploreMore = () => {
 
     return (
         <>
-                    <div className="explore-container">
-                        <h1>{components.bigTitle}</h1>
-                        <div className="explore-wrapper">
-                            {
-                                components.map((card, i) => (
-                                    <div key={i}>
-                                        <div className="explore-card">
-                                            <img src={card.imgUrl} alt="" />
-                                            <div className="explore-card-content">
-                                                <h1>{card.title}</h1>
-                                                <p>{card.text}</p>
-                                                <button>{card.button}</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    </div>
+            <div className="explore-container">
+                <h1 id="bigTitle">{bigTitle}</h1>
+                <div className="explore-wrapper">
+                    {
+                        components.map((card, i) => (
+                            <div className="explore-card" key={i}>
+                                <img src={card.imgUrl} alt="" />
+                                <div className="explore-card-content">
+                                    <h1>{card.title}</h1>
+                                    <p>{card.text}</p>
+                                    <button>{card.button}</button>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
 
         </>
     )

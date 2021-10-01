@@ -1,17 +1,20 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Slider from "react-slick";
 import './newArrivals.scss';
-import {getProducts} from '../../Redux/Actions/action';
+import { getProducts } from '../../Redux/Actions/action';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 
 
 const NewArrivals = props => {
 
-    
+
     const dispatch = useDispatch();
-    const products = useSelector(state => state.requestReducer.products)
-    const productsLoading = useSelector(state => state.requestReducer.productsLoading)
-    
+    const products = useSelector(state => state.requestReducer.products);
+    const productsLoading = useSelector(state => state.requestReducer.productsLoading);
+
+    let history = useHistory()
+
     useEffect(() => {
         dispatch(getProducts())
     }, [])
@@ -48,7 +51,7 @@ const NewArrivals = props => {
                 breakpoint: 750,
                 settings: {
                     slidesToShow: 1,
-                    centerMode:false
+                    centerMode: false
                 }
             }
         ]
@@ -60,19 +63,22 @@ const NewArrivals = props => {
             {
                 productsLoading ? (
                     <Slider {...settings}>
-                    {products.map((product , i) => (
-                        <div className="new-arrivals-products" key={i}>
-                            <div className="new-arrivals-image-wrapper">
-                                <img src={product.imgUrl} alt="" />
-                                <h6>NEW</h6>
+                        {products.map((product, i) => (
+                            <div className="new-arrivals-products"
+                                onClick={() => history.push(`/productpage/${product.id}`)}
+                                key={i}
+                            >
+                                <div className="new-arrivals-image-wrapper">
+                                    <img src={product.imgUrl} alt="" />
+                                    <h6>NEW</h6>
+                                </div>
+                                <h4>{product.name}</h4>
+                                <h4>${product.price}</h4>
                             </div>
-                            <h4>{product.name}</h4>
-                            <h4>${product.price}</h4>
-                        </div>
-                    ))}
-                </Slider>
+                        ))}
+                    </Slider>
                 )
-                : <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" alt="" />
+                    : <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" alt="" />
             }
 
         </div>

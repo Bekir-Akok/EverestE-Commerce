@@ -1,3 +1,21 @@
 input{
     width: 60%;
+    height: 30px;
+    border: 3px solid #e5e5e5;
+    outline: none;
+    border-radius: 20px;
+
+    &::placeholder{
+        padding-left: 10px;
+    }
+}
+
+.search-button{
+    position: relative;
+    span{
+        position: absolute;
+        font-size: 18px;
+        top: -9px;
+        right: 9px;
+    }
 }

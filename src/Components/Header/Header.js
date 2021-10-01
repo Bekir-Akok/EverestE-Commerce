@@ -2,15 +2,15 @@ import SearchBar from '../SearchBar/SearchBar';
 import "./header.scss";
 import everest from "../../assets/LOGO.png";
 import { useHistory } from 'react-router-dom';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-  
+
 const Header = () => {
 
     const menuData = [
-        {categories: "Women" , category: "Women"}, 
-        {categories: "Man" , category: "Men"}, 
-        {categories: "Bag" , category: "Accessories & Bags"}, 
+        { categories: "Women", category: "Women" },
+        { categories: "Man", category: "Men" },
+        { categories: "Bag", category: "Accessories & Bags" },
     ]
 
     let history = useHistory()
@@ -21,13 +21,13 @@ const Header = () => {
                 <div className="header-logo">
                     <Link to="/"><img src={everest} alt="" /></Link>
                 </div>
-                <SearchBar/>
+                <SearchBar />
                 <div className="header-menu">
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         {
-                            menuData.map((x , i) =>{
-                              return <li style={{cursor: "pointer"}} key={i} onClick={() => history.push(`/categorypage/${x.categories}`)}>{x.category}</li>
+                            menuData.map((x, i) => {
+                                return <li style={{ cursor: "pointer" }} key={i} onClick={() => history.push(`/categorypage/${x.categories}`)}>{x.category}</li>
                             })
                         }
                     </ul>
@@ -36,5 +36,5 @@ const Header = () => {
         </div>
     )
 }
- 
+
 export default Header

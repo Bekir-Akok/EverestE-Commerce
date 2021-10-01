@@ -8,8 +8,7 @@ import Layout from '../../Layout/Layout';
 
 const Home = () => {
     return (
-        <>   
-            <Layout/>
+            <Layout>
             <HomeSlider 
                 slider="https://www.burton.com/dw/image/v2/AADF_PRD/on/demandware.static/-/Library-Sites-shared-content/default/dw61643835/S22/S22-AK/21SS-AK-InsetHero-BG.jpg"
                 subtitle="[ak]® Spring Collection"
@@ -37,8 +36,7 @@ const Home = () => {
                 description="Jake founded Burton Snowboards out of a Vermont barn in 1977 and dedicated the rest of his life to snowboarding."
                 button="TAKE A MOMENT"
                 backgroundImage="https://www.burton.com/dw/image/v2/AADF_PRD/on/demandware.static/-/Library-Sites-shared-content/default/dwa850f36d/FW21/W21-Jake-Page/21W-JakePage-FullBleedHero-01-mobile-2x.jpg?sw=768&sfrm=jpg&q=100"/> 
-            <Layout/>
-        </>
+            </Layout>
     )
 }
 

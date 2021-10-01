@@ -1,3 +1,5 @@
+@import '../abstrack';
+
 .footer-container{
   width: 100%;
   height: 80px;
@@ -8,6 +10,29 @@
   justify-content: space-between;
   padding: 0 5px;
 
+  .footer-wrapper {
+    display: flex;
+  }
+
+  @include media (large) {
+    flex-direction: column;
+    padding: 30px 0;
+  }
+
+  .footer-menu {
+    @include media (large) {
+     display: none; 
+    }
+  }
+
+  #footer-logo{
+    
+    @include media (large) {
+      flex-direction: column;
+    }
+  }
+
+
   ul{
     display: flex;
     align-items: center;
@@ -17,24 +42,47 @@
       list-style: none;
       margin: 0 8px;
 
+      @include media (large) {
+        margin-top: 10px;
+      }
+
       img{
         width: 100px;
         object-fit: cover;
+
+        @include media (xlarge) {
+          width: 70px;
+        }
+        @include media (large) {
+          width: 140px;
+        }
       }
       
       p{
         font-size: 14px;
+
+        @include media (xlarge) {
+          font-size: 11px;
+        }
       }
 
       span{
         font-size: 35px;
         color: #4e4c4b;
+
+        @include media (xlarge) {
+          font-size: 28px;
+        }
       }
 
       a{
         font-size:14px;
         text-decoration: none;
         color: #4e4c4b;
+
+        @include media (xlarge) {
+          font-size: 11px;
+        }
 
         &:hover{
           text-decoration: underline;
