@@ -1,5 +1,7 @@
 # Everest E-Commerce
 ## <a href="https://everest-e-commerce.vercel.app/" target="_blank">Link</a>
+
+The project continues..
 Full stack e-commerce site where I handle all the topics and concepts of React.
 
 ### `git clone https://github.com/Bekir-Akok/EverestE-Commerce.git`
