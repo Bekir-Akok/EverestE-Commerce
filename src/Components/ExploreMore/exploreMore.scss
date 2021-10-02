@@ -18,7 +18,7 @@
     .explore-wrapper{
         display:flex;
         justify-content: space-between;
-        align-items: center;
+        /* align-items: center; */
         @include media(large) {
             flex-direction: column;
         }
@@ -55,7 +55,7 @@
             align-items: flex-start;
             justify-content: flex-start;
             flex-direction: column;
-            padding-left: 50px;
+            padding-left: 5px;
 
             @include media(xxlarge) {
                 width: 70%;

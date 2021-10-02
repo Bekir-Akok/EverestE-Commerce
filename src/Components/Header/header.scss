@@ -1,3 +1,5 @@
+@import '../abstrack';
+
 .header-container{
     width: 100%;
     position: fixed;
@@ -11,17 +13,25 @@
         justify-content: space-between;
         align-items: center;
         padding: 10px 30px;
-
+        position: relative;
         .header-logo{
             width: 100%;
             img{
                 width: 200px;
                 object-fit: cover;
+
+                @include media(small) {
+                    width: 140px;
+                }
             }
         }
         
         .header-menu{
             width: 100%;
+
+            @include media (large){
+                display: none;
+            }
 
             ul{
                 display: flex;
@@ -32,6 +42,151 @@
                 li{
                     list-style:none;
                     margin-left: 15px;
+                    transition: ease-in 2s;
+
+                    a{
+                        text-decoration: none;
+                        color: #000;
+                    }
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        .header-mobile-menu{
+            display: none;
+           
+
+            @include media (large){
+                display: block;
+            }
+
+            span{
+                font-size: 25px;
+            }
+
+            .mobile-menu-container{
+                width: 100%;
+                height: 100vh;
+                position: absolute;
+                z-index: 999;
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                transition: ease-in 3s;
+
+                .mobile-menu-wrapper {
+                    flex: 1;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #fff;
+
+                    @include media(small) {
+                        flex: 3;
+                    }
+
+                    .head-menu{
+                        padding: 20px;
+                        img{
+                            width:180px;
+                            object-fit: cover;
+                            margin-bottom: 20px;
+                        }
+
+                        .sign-in{
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            .flag{
+
+                                &::before{
+                                    content: "";
+                                    width: 30px;
+                                    height: 20px;
+                                    background-size: cover;
+                                    background-image: url("https://www.burton.com/static/content/2017/images/flags-optimized/flag-color-US.svg"); 
+                                    background-repeat: no-repeat;
+                                    margin-right: 5px;
+                                }
+                            }
+
+                            span{
+                                display: flex;
+                                align-items: center;
+                                font-size: 45px;
+                                
+                                p{
+                                    font-size: 18px;
+                                    font-weight: bold;
+                                }
+
+                                h6{
+                                    font-size: 16px;
+                                }
+                            }
+
+                        }
+                    }
+                    
+                    ul{
+                        flex-direction: column;
+                        margin-top: 25px;
+
+                        li{
+                            width: 100%;
+                            font-size: 19px;
+                            font-weight: bold;
+
+                            span{
+                                padding-left: 10px;
+                            }
+
+                            &::after{
+                                content: "";
+                                display: block;
+                                border-bottom: 1px solid #000;
+                                line-height: 1px;
+                                margin: 23px 0;
+                            }
+
+                            a{
+                                text-decoration: none;
+                                color: #000;
+                                padding-left: 10px;
+                            }
+                        
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+
+                .mobile-menu-closer {
+                    flex: 1;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    background-color:rgba(0,0,0,.57);
+
+                    span{
+                        position: absolute;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 25px;
+                        top: 10px;
+                        right: 10px;
+                        width: 28px;
+                        height: 28px;
+                        border-radius:50% ;
+                        background-color: #fff;
+                    }
                 }
             }
         }

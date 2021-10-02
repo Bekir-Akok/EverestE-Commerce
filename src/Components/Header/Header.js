@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import "./header.scss";
 import everest from "../../assets/LOGO.png";
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { RiMenuFill } from 'react-icons/ri';
+import { AiOutlineClose } from 'react-icons/ai';
+import { IoPersonCircleOutline } from 'react-icons/io5';
 
 
 const Header = () => {
@@ -13,7 +17,9 @@ const Header = () => {
         { categories: "Bag", category: "Accessories & Bags" },
     ]
 
-    let history = useHistory()
+    let history = useHistory();
+    const [visible, setVisible] = useState(false);
+
 
     return (
         <div className="header-container">
@@ -31,6 +37,55 @@ const Header = () => {
                             })
                         }
                     </ul>
+                </div>
+                <div className="header-mobile-menu">
+                    <span>
+                        <RiMenuFill
+                            onClick={() => setVisible(!visible)} />
+                    </span>
+                    {
+                        visible ? (
+                            <>
+                                <div className="mobile-menu-container">
+                                    <div className="mobile-menu-wrapper">
+                                        <div className="head-menu">
+                                            <img src={everest} alt=""
+                                                onClick={() => setVisible(!visible)} />
+                                            <div className="sign-in">
+                                                <span>
+                                                    <IoPersonCircleOutline />
+                                                    <p>Sign In</p>
+                                                </span>
+                                                <span className="flag">
+                                                    <h6>US/EN</h6>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <ul>
+                                            <li><Link to="/">Home</Link></li>
+                                            {
+                                                menuData.map((x, i) => {
+                                                    return (
+                                                        <li
+                                                            onClick={() => history.push(`/categorypage/${x.categories}`)}
+                                                            key={i}>
+                                                            <a>{x.category}</a>
+                                                        </li>
+                                                    )
+                                                })
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div className="mobile-menu-closer"
+                                        onClick={() => setVisible(!visible)} >
+                                        <span>
+                                            <AiOutlineClose />
+                                        </span>
+                                    </div>
+                                </div>
+                            </>
+                        ) : null
+                    }
                 </div>
             </div>
         </div>
