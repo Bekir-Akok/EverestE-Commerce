@@ -16,6 +16,7 @@
     "redux": "^4.1.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
+    "rm": "^0.1.8",
     "sass": "^1.42.1",
     "simple-react-lightbox": "^3.6.9-0",
     "web-vitals": "^2.1.0"
