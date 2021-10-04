@@ -8,7 +8,7 @@ const Card = ({product}) => {
 
     return (
         <>
-            <div className="card" onClick={() => history.push(`/productpage/${product.id}`)}>
+            <div className="card" onClick={() => history.push(`/productpage/${product.id}` ,product)}>
                 <div className="card-img">
                     <img src={product.imgUrl} alt="" />
                 </div>

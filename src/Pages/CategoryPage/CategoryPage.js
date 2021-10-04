@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch} from 'react-redux';
 import { getProducts } from '../../Redux/Actions/action';
 import Layout from '../../Layout/Layout';
 import ProductCards from '../../Components/ProductCards/ProductCards';
@@ -41,6 +41,8 @@ const CategoryPage = () => {
 
         setSlider(result.pop())
     };
+
+    
 
     useEffect(() => {
         dispatch(getProducts());

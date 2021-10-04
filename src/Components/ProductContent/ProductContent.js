@@ -3,6 +3,7 @@ import { SRLWrapper } from "simple-react-lightbox";
 import { RiStarSFill } from 'react-icons/ri';
 import { AiTwotoneHeart } from 'react-icons/ai';
 import './productContent.scss';
+import ProductDetails from '../ProductDetails/ProductDetails';
 
 const ProductContent = ({ filterProduct }) => {
 
@@ -39,9 +40,9 @@ const ProductContent = ({ filterProduct }) => {
                                             <h3>{pro.name}</h3>
                                             <h6>${pro.price}</h6>
                                             <div className="product-stars">
-                                                <h6>{stars.map((x) => {
+                                                <h6>{stars.map((x , i) => {
                                                     return (
-                                                        <RiStarSFill />
+                                                        <RiStarSFill key={i}/>
                                                     )
                                                 })}</h6>
                                                 <h6 style={{ marginLeft: "15px" }}>22 Reviews</h6>
@@ -92,6 +93,7 @@ const ProductContent = ({ filterProduct }) => {
                     )
                 })
             }
+            <ProductDetails product={filterProduct}/>
         </>
     )
 }

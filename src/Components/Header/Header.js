@@ -19,8 +19,7 @@ const Header = () => {
 
     let history = useHistory();
     const [visible, setVisible] = useState(false);
-
-
+    
     return (
         <div className="header-container">
             <div className="header-wrapper">
@@ -44,47 +43,46 @@ const Header = () => {
                             onClick={() => setVisible(!visible)} />
                     </span>
                     {
-                        visible ? (
-                            <>
-                                <div className="mobile-menu-container">
-                                    <div className="mobile-menu-wrapper">
-                                        <div className="head-menu">
-                                            <img src={everest} alt=""
-                                                onClick={() => setVisible(!visible)} />
-                                            <div className="sign-in">
-                                                <span>
-                                                    <IoPersonCircleOutline />
-                                                    <p>Sign In</p>
-                                                </span>
-                                                <span className="flag">
-                                                    <h6>US/EN</h6>
-                                                </span>
-                                            </div>
+                        <>
+                            <div className="mobile-menu-container"
+                                style={visible ? { left: "0" } : { left: "-1000px" }}>
+                                <div className="mobile-menu-wrapper">
+                                    <div className="head-menu">
+                                        <img src={everest} alt=""
+                                            onClick={() => setVisible(!visible)} />
+                                        <div className="sign-in">
+                                            <span>
+                                                <IoPersonCircleOutline />
+                                                <p>Sign In</p>
+                                            </span>
+                                            <span className="flag">
+                                                <h6>US/EN</h6>
+                                            </span>
                                         </div>
-                                        <ul>
-                                            <li><Link to="/">Home</Link></li>
-                                            {
-                                                menuData.map((x, i) => {
-                                                    return (
-                                                        <li
-                                                            onClick={() => history.push(`/categorypage/${x.categories}`)}
-                                                            key={i}>
-                                                            <a>{x.category}</a>
-                                                        </li>
-                                                    )
-                                                })
-                                            }
-                                        </ul>
                                     </div>
-                                    <div className="mobile-menu-closer"
-                                        onClick={() => setVisible(!visible)} >
-                                        <span>
-                                            <AiOutlineClose />
-                                        </span>
-                                    </div>
+                                    <ul>
+                                        <li><Link to="/">Home</Link></li>
+                                        {
+                                            menuData.map((x, i) => {
+                                                return (
+                                                    <li
+                                                        onClick={() => history.push(`/categorypage/${x.categories}`, x)}
+                                                        key={i}>
+                                                        <a>{x.category}</a>
+                                                    </li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
                                 </div>
-                            </>
-                        ) : null
+                                <div className="mobile-menu-closer"
+                                    onClick={() => setVisible(!visible)} >
+                                    <span>
+                                        <AiOutlineClose />
+                                    </span>
+                                </div>
+                            </div>
+                        </>
                     }
                 </div>
             </div>
