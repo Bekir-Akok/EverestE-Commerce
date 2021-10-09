@@ -4,8 +4,18 @@ import { RiStarSFill } from 'react-icons/ri';
 import { AiTwotoneHeart } from 'react-icons/ai';
 import './productContent.scss';
 import ProductDetails from '../ProductDetails/ProductDetails';
+import { useDispatch } from 'react-redux';
+import { addQuantity, addToBasket } from '../../Redux/Actions/action';
+
 
 const ProductContent = ({ filterProduct }) => {
+
+    const dispatch = useDispatch();
+
+    const combineActions = (pro) => {
+        dispatch(addToBasket(pro));
+        dispatch(addQuantity(pro));
+    }
 
     const stars = [
         {}, {}, {}, {}, {}
@@ -40,9 +50,9 @@ const ProductContent = ({ filterProduct }) => {
                                             <h3>{pro.name}</h3>
                                             <h6>${pro.price}</h6>
                                             <div className="product-stars">
-                                                <h6>{stars.map((x , i) => {
+                                                <h6>{stars.map((x, i) => {
                                                     return (
-                                                        <RiStarSFill key={i}/>
+                                                        <RiStarSFill key={i} />
                                                     )
                                                 })}</h6>
                                                 <h6 style={{ marginLeft: "15px" }}>22 Reviews</h6>
@@ -82,7 +92,10 @@ const ProductContent = ({ filterProduct }) => {
                                                 }
                                             </div>
                                             <div className="product-buttons">
-                                                <button>ADD TO CARD</button>
+                                                <button
+                                                    onClick={() => combineActions(pro)}>
+                                                    ADD TO CARD
+                                                </button>
                                                 <button className="fav-button"><AiTwotoneHeart /></button>
                                             </div>
                                         </div>
@@ -93,7 +106,7 @@ const ProductContent = ({ filterProduct }) => {
                     )
                 })
             }
-            <ProductDetails product={filterProduct}/>
+            <ProductDetails product={filterProduct} />
         </>
     )
 }

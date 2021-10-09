@@ -4,7 +4,7 @@
     width: 100%;
     position: fixed;
     background-color: #fff;
-    top: 0;
+    top: 20px;
     left: 0;
     z-index: 999;
     .header-wrapper{
@@ -12,7 +12,7 @@
         display:flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 30px;
+        padding: 20px 30px;
         position: relative;
 
         .header-logo{

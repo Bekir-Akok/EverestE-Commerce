@@ -5,18 +5,20 @@ import HomeHeroMedia from '../../Components/HomeHeroMedia/HomeHeroMedia';
 import HomeCategorySlider from '../../Components/HomeCategorySlider/HomeCategorySlider';
 import ExploreMore from '../../Components/ExploreMore/ExploreMore';
 import Layout from '../../Layout/Layout';
-import { getProducts } from '../../Redux/Actions/action';
+import { getProducts, getBasketItem } from '../../Redux/Actions/action';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { basketControl } from '../../helpers/helpers';
 
 const Home = () => {
 
     const dispatch = useDispatch();
     const products = useSelector(state => state.requestReducer.products);
     const productsLoading = useSelector(state => state.requestReducer.productsLoading);
+    const basket = useSelector(state => state.basketReducer.basket);
 
     useEffect(() => {
-        dispatch(getProducts())
+        dispatch(getProducts());
+        basketControl(basket ,dispatch,getBasketItem);
     }, [])
 
     return (

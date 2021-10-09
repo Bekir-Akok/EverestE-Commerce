@@ -7,11 +7,14 @@ import ProductCards from '../../Components/ProductCards/ProductCards';
 import HomeSlider from '../../Components/HomeSlider/HomeSlider';
 import { sliderData } from './_sliderData';
 import HomeHeroMedia from '../../Components/HomeHeroMedia/HomeHeroMedia';
+import { basketControl } from '../../helpers/helpers';
+import { getBasketItem } from '../../Redux/Actions/action';
 
 const CategoryPage = () => {
 
     let { category } = useParams();
     const allProducts = useSelector(state => state.requestReducer.products)
+    const basket = useSelector(state => state.basketReducer.basket)
     const dispatch = useDispatch();
     const [products, setProducts] = useState([]);
     const [slider, setSlider] = useState({});
@@ -48,6 +51,7 @@ const CategoryPage = () => {
         dispatch(getProducts());
         filterSliderData();
         filteredProducts();
+        basketControl(basket ,dispatch,getBasketItem);
     }, [category])
 
     return (
