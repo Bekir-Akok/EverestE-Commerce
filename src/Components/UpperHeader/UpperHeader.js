@@ -1,19 +1,21 @@
-import React, { useEffect , useState } from 'react';
-import {Link} from 'react-router-dom';
-import {GrBasket} from 'react-icons/gr';
-import {CgLogIn} from 'react-icons/cg';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { GrBasket } from 'react-icons/gr';
+import { CgLogIn } from 'react-icons/cg';
 import { basketLength } from '../../helpers/helpers';
 import { useSelector } from 'react-redux';
+import {auth} from '../../firebase/firebase';
 import './upperHeader.scss';
 
 const UpperHeader = () => {
 
-    const [newBasket , setNewBasket] = useState(0);
+    const [newBasket, setNewBasket] = useState(0);
     const basket = useSelector(state => state.basketReducer.basket);
+    const user = useSelector(state => state.userReducer.user);
 
     useEffect(() => {
-        basketLength(basket , setNewBasket)
-    },[basket])
+        basketLength(basket, setNewBasket)
+    }, [basket])
 
 
     return (
@@ -26,9 +28,23 @@ const UpperHeader = () => {
             <h4>FREE SHIPPING ON ALL ORDERS</h4>
             <div className="upper-basket">
                 <div className="upper-sign-in">
-                    <Link><span><CgLogIn/></span>Sign-in</Link>
+                    {
+                        user
+                            ? <div style={{cursor: "pointer"}} onClick={() => auth.signOut()}>
+                              <p>Welcome</p>   
+                              <p>{user.email}</p>
+                            </div>
+                            : <>
+                                <Link to="/login">
+                                    <span>
+                                        <CgLogIn />
+                                    </span>
+                                    Sign-in
+                                </Link>
+                            </>
+                    }
                 </div>
-                <Link to="/basket"><GrBasket/>{newBasket.length}</Link>
+                <Link to="/basket"><GrBasket />{newBasket.length}</Link>
             </div>
         </div>
     )

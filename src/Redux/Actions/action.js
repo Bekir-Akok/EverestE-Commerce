@@ -60,3 +60,11 @@ export const subQuantity = (product) => {
 export const emptyBasket = () => {
     return { type: 'EMPTY_BASKET'}
 };
+
+/*User Action */
+
+export const isLogin = (user) => {
+    return {type: 'SET_USER' , payload: user}
+}
+
+/*User Action */

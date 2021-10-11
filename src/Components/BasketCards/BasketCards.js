@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { basketLength } from '../../helpers/helpers';
-import { GoArrowSmallUp, GoArrowSmallDown } from 'react-icons/go';
 import { AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import { removeFromBasket, addQuantity, subQuantity, emptyBasket } from '../../Redux/Actions/action';
 import { getProducts } from '../../Redux/Actions/action';

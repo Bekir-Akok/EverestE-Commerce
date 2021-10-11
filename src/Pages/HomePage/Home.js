@@ -5,9 +5,10 @@ import HomeHeroMedia from '../../Components/HomeHeroMedia/HomeHeroMedia';
 import HomeCategorySlider from '../../Components/HomeCategorySlider/HomeCategorySlider';
 import ExploreMore from '../../Components/ExploreMore/ExploreMore';
 import Layout from '../../Layout/Layout';
-import { getProducts, getBasketItem } from '../../Redux/Actions/action';
+import { getProducts, getBasketItem, isLogin } from '../../Redux/Actions/action';
 import { useDispatch, useSelector } from 'react-redux';
 import { basketControl } from '../../helpers/helpers';
+import { auth } from '../../firebase/firebase';
 
 const Home = () => {
 
@@ -16,9 +17,22 @@ const Home = () => {
     const productsLoading = useSelector(state => state.requestReducer.productsLoading);
     const basket = useSelector(state => state.basketReducer.basket);
 
+    /*User login action*/
+    const setUser = () => {
+        auth.onAuthStateChanged(authUser => {
+            return (
+                authUser
+                    ? dispatch(isLogin(authUser))
+                    : dispatch(isLogin(null))
+            )
+        })
+    }
+    /*User login action*/
+
     useEffect(() => {
         dispatch(getProducts());
-        basketControl(basket ,dispatch,getBasketItem);
+        basketControl(basket, dispatch, getBasketItem);
+        setUser();
     }, [])
 
     return (
