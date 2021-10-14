@@ -51,7 +51,7 @@ const ProductPage = () => {
     }, [product])
 
     return (
-        <>
+        <div style={{overflowX:"hidden"}}> 
             <Layout>
                 <ProductContent filterProduct={filterProduct} />
                 <div style={myStyle}>
@@ -67,7 +67,7 @@ const ProductPage = () => {
                         margin />
                 </div>
             </Layout>
-        </>
+        </div>
     )
 }
 

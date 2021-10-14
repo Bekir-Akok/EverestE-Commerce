@@ -1,20 +1,26 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { SRLWrapper } from "simple-react-lightbox";
 import { RiStarSFill } from 'react-icons/ri';
 import { AiTwotoneHeart } from 'react-icons/ai';
-import './productContent.scss';
+import gif from '../../assets/addtocard.gif'
 import ProductDetails from '../ProductDetails/ProductDetails';
 import { useDispatch } from 'react-redux';
 import { addQuantity, addToBasket } from '../../Redux/Actions/action';
+import {addToCardEffect} from '../../helpers/helpers';
+import './productContent.scss';
 
 
 const ProductContent = ({ filterProduct }) => {
 
     const dispatch = useDispatch();
+    const cardButton = useRef();
+    const cardImg = useRef();
+    const cardText = useRef();
 
     const combineActions = (pro) => {
         dispatch(addToBasket(pro));
         dispatch(addQuantity(pro));
+        addToCardEffect(cardText, cardImg , cardButton);
     }
 
     const stars = [
@@ -93,8 +99,18 @@ const ProductContent = ({ filterProduct }) => {
                                             </div>
                                             <div className="product-buttons">
                                                 <button
+                                                    ref={cardButton}
                                                     onClick={() => combineActions(pro)}>
-                                                    ADD TO CARD
+                                                    <span
+                                                        ref={cardText}>
+                                                        ADD TO CARD
+                                                    </span>
+                                                    <img
+                                                        src={gif}
+                                                        alt=""
+                                                        style={{ display: "none" }}
+                                                        ref={cardImg}
+                                                        id="img" />
                                                 </button>
                                                 <button className="fav-button"><AiTwotoneHeart /></button>
                                             </div>

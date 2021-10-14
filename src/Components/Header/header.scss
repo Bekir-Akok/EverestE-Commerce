@@ -6,7 +6,7 @@
     background-color: #fff;
     top: 20px;
     left: 0;
-    z-index: 999;
+    z-index: 997;
     .header-wrapper{
 
         display:flex;
@@ -75,7 +75,7 @@
                 height: 100vh;
                 position: absolute;
                 z-index: 999;
-                top: 0;
+                top: 5px;
                 left: 0;
                 display: flex;
                 align-items: center;
@@ -103,6 +103,43 @@
                             display: flex;
                             align-items: center;
                             justify-content: space-between;
+
+                            .upper-sign-in{
+
+                                p{
+                                    font-size: 12px;
+                                    font-weight: lighter;
+                                    text-align: center;
+                                    margin-right: 10px;
+                                }
+                    
+                                a{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    font-size:18px;
+                                    margin-right: 15px;
+                                    color: #000;
+                                    text-decoration: none;
+                    
+                                    @include media (small){
+                                        font-size: 16px;
+                                    }
+                                    
+                                    span{
+                                        font-size: 32px;
+                    
+                                        @include media (small){
+                                            font-size: 28px;
+                                        }
+                                    }
+                    
+                                    &:hover{
+                                        text-decoration: underline;
+                                    }
+                                    
+                                }
+                            }
 
                             .flag{
 

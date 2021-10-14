@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { auth } from '../../firebase/firebase';
 import { useHistory } from 'react-router-dom';
+import { AiOutlineLock } from 'react-icons/ai';
 
 const Register = () => {
 
     let history = useHistory();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    const [displayName, setDisplayName] = useState();
+    const [name, setName] = useState();
+    const [surname, setSurname] = useState();
 
     const register = e => {
         e.preventDefault();
@@ -18,6 +20,7 @@ const Register = () => {
             .then((auth) => {
 
                 if (auth) {
+                    auth.user.updateProfile({ displayName: name + " " + surname })
                     history.push('/')
                 }
             })
@@ -26,13 +29,49 @@ const Register = () => {
 
     return (
         <>
-            <form action="">
-          
-                <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-                <button type="submit" onClick={register} >REGISTER</button>
-            </form>
-            <Link to="/">Home</Link>
+            <div className="signin-container">
+                <div className="signin-title">
+                    <p>Create Your Account</p>
+                    <span>
+                        <AiOutlineLock />
+                    </span>
+                </div>
+                <form action=""
+                    onSubmit={register}>
+                    <input
+                        type="text"
+                        value={name}
+                        placeholder="Name"
+                        onChange={e => setName(e.target.value)}
+                        required />
+                    <input
+                        type="text"
+                        value={surname}
+                        placeholder="Surname"
+                        onChange={e => setSurname(e.target.value)}
+                        required />
+                    <input
+                        type="email"
+                        value={email}
+                        placeholder="Email"
+                        onChange={e => setEmail(e.target.value)}
+                        required />
+                    <input
+                        type="password"
+                        value={password}
+                        placeholder="Password"
+                        onChange={e => setPassword(e.target.value)}
+                        required />
+                    <button
+                        type="submit" >
+                        CREATE ACCOUNT
+                    </button>
+                </form>
+                <p>
+                    Already have an account ?
+                    <Link to="/login"> Sign in</Link>
+                </p>
+            </div>
         </>
     )
 }

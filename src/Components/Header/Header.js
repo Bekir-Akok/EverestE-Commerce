@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 import { RiMenuFill } from 'react-icons/ri';
 import { AiOutlineClose } from 'react-icons/ai';
 import { IoPersonCircleOutline } from 'react-icons/io5';
-
+import { useSelector } from 'react-redux';
+import { auth } from '../../firebase/firebase';
 
 const Header = () => {
 
@@ -20,10 +21,11 @@ const Header = () => {
 
     let history = useHistory();
     const [visible, setVisible] = useState(false);
+    const user = useSelector(state => state.userReducer.user);
 
     return (
         <>
-            <UpperHeader/>
+            <UpperHeader />
             <div className="header-container">
                 <div className="header-wrapper">
                     <div className="header-logo">
@@ -54,10 +56,23 @@ const Header = () => {
                                             <img src={everest} alt=""
                                                 onClick={() => setVisible(!visible)} />
                                             <div className="sign-in">
-                                                <span>
-                                                    <IoPersonCircleOutline />
-                                                    <p>Sign In</p>
-                                                </span>
+                                                <div className="upper-sign-in">
+                                                    {
+                                                        user
+                                                            ? <div style={{ cursor: "pointer" }} onClick={() => auth.signOut()}>
+                                                                <p>Welcome</p>
+                                                                <p>{user.displayName}</p>
+                                                            </div>
+                                                            : <>
+                                                                <Link to="/login">
+                                                                    <span>
+                                                                        <IoPersonCircleOutline />
+                                                                    </span>
+                                                                    Sign-in
+                                                                </Link>
+                                                            </>
+                                                    }
+                                                </div>
                                                 <span className="flag">
                                                     <h6>US/EN</h6>
                                                 </span>

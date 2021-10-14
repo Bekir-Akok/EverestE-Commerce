@@ -20,6 +20,12 @@
         border-bottom-right-radius: 10px;
     }
 
+    #img{
+        max-width: 80px;
+        margin: 0 auto;
+        object-fit: cover;
+    }
+
     .card-img{
         overflow: hidden;
     

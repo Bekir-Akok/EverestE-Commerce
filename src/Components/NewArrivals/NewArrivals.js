@@ -40,7 +40,7 @@ const NewArrivals = ({ products, productsLoading, title, backgroundColor , margi
                 breakpoint: 750,
                 settings: {
                     slidesToShow: 1,
-                    centerMode: false
+                    centerMode: true 
                 }
             }
         ]

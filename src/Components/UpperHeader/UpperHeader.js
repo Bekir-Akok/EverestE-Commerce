@@ -4,7 +4,7 @@ import { GrBasket } from 'react-icons/gr';
 import { CgLogIn } from 'react-icons/cg';
 import { basketLength } from '../../helpers/helpers';
 import { useSelector } from 'react-redux';
-import {auth} from '../../firebase/firebase';
+import { auth } from '../../firebase/firebase';
 import './upperHeader.scss';
 
 const UpperHeader = () => {
@@ -16,7 +16,6 @@ const UpperHeader = () => {
     useEffect(() => {
         basketLength(basket, setNewBasket)
     }, [basket])
-
 
     return (
         <div className="upper-header">
@@ -30,9 +29,9 @@ const UpperHeader = () => {
                 <div className="upper-sign-in">
                     {
                         user
-                            ? <div style={{cursor: "pointer"}} onClick={() => auth.signOut()}>
-                              <p>Welcome</p>   
-                              <p>{user.email}</p>
+                            ? <div style={{ cursor: "pointer" }} onClick={() => auth.signOut()}>
+                                <p>Welcome</p>
+                                <p>{user.displayName}</p>
                             </div>
                             : <>
                                 <Link to="/login">
