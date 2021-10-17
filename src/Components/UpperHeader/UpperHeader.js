@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useHistory } from 'react-router-dom';
 import { GrBasket } from 'react-icons/gr';
 import { CgLogIn } from 'react-icons/cg';
 import { basketLength } from '../../helpers/helpers';
 import { useSelector } from 'react-redux';
-import { auth } from '../../firebase/firebase';
 import './upperHeader.scss';
 
 const UpperHeader = () => {
@@ -12,6 +11,7 @@ const UpperHeader = () => {
     const [newBasket, setNewBasket] = useState(0);
     const basket = useSelector(state => state.basketReducer.basket);
     const user = useSelector(state => state.userReducer.user);
+    let history = useHistory();
 
     useEffect(() => {
         basketLength(basket, setNewBasket)
@@ -29,7 +29,7 @@ const UpperHeader = () => {
                 <div className="upper-sign-in">
                     {
                         user
-                            ? <div style={{ cursor: "pointer" }} onClick={() => auth.signOut()}>
+                            ? <div style={{ cursor: "pointer" }} onClick={() => history.push(`/profilepage/${user.displayName}`)}>
                                 <p>Welcome</p>
                                 <p>{user.displayName}</p>
                             </div>

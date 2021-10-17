@@ -1,17 +1,8 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getComponents } from '../../Redux/Actions/action';
+import React from 'react';
+import { components } from './_exploreMoreData';
 import './exploreMore.scss';
 
 const ExploreMore = ({ bigTitle }) => {
-
-    const dispatch = useDispatch();
-    const components = useSelector(state => state.requestReducer.components)
-
-    useEffect(() => {
-        dispatch(getComponents())
-    }, [])
-
     return (
         <>
             <div className="explore-container">

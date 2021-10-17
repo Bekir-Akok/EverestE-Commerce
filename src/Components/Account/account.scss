@@ -1,0 +1,88 @@
+@import '../abstrack';
+
+.account-container{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0;
+
+    @include media (large) {
+        width: 100%;
+        flex: 1;    
+    }
+
+    > * {
+        margin-top: 20px ;
+    }
+
+    h3{
+        font-weight: lighter;
+        font-size: 23px;
+        display: flex;
+        flex-direction: column;
+
+        &::after{
+            content: " ";
+            width: 180%;
+            height: 1px;
+            border-top:2px solid #4e4c4b; 
+            margin-top: 15px;
+        }
+    }
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        #signout{
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        li{
+            list-style: none;
+            margin: 10px 0;
+            
+            a{
+                color: #4e4c4b;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 14px;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    ol{
+
+        @include media(large) {
+            display: none;
+        }
+
+        p{
+            font-size: 22px;
+            color: #4e4c4b;
+            font-weight: lighter;
+        }
+
+        li{
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: bold;
+
+            span{
+                font-size: 28px;
+                margin-right: 15px;
+            }
+        }
+    }
+}

@@ -1,9 +1,28 @@
 import React from 'react';
 import Subtotal from '../Subtotal/Subtotal';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory, Link } from 'react-router-dom';
+import { postOrderAction, emptyBasket } from '../../Redux/Actions/action';
 import './checkout.scss';
 
 const Checkout = ({ basket }) => {
+
+    const user = useSelector(state => state.userReducer.user);
+    const dispatch = useDispatch();
+    let history = useHistory();
+
+    const checkUser = () => {
+        if (user) {
+            dispatch(postOrderAction(basket, user));
+            dispatch(emptyBasket());
+            alert("Your order has been created☑️");
+            history.push('/');
+        } else {
+            alert("Please sign in a account");
+            history.push('/login');
+        }
+    }
+
     return (
         <>
             {
@@ -11,7 +30,9 @@ const Checkout = ({ basket }) => {
                     ? null
                     : (
                         <div className="checkout-contaier">
-                            <button type="submit">
+                            <button
+                                onClick={() => checkUser()}
+                                type="submit">
                                 SECURE CHECKOUT
                             </button>
                             <div className="checkout-detail">

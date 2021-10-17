@@ -22,7 +22,7 @@ const ProductDetails = ({ product }) => {
                 <div className="details-detail">
                     <ul>
                         {
-                            typeof(product) == 'undefined' ? console.log("product undefined") : (
+                            typeof(product) == 'undefined' ? null : (
                                 product[0].description.map((detail, i) => {
                                     return (
                                         <li key={i}>{detail.details}</li>

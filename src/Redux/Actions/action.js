@@ -1,4 +1,4 @@
-/*Http Requests Actions */
+/*Get Requests Actions */
 
 export const getProducts = () => dispatch => {
     return (
@@ -17,25 +17,27 @@ export const getBasketItem = () => dispatch => {
     )
 }
 
-export const getCategories = () => dispatch => {
-    return (
-        fetch('https://614efc3db4f6d30017b4842e.mockapi.io/api/v1//categories')
-            .then(response => response.json())
-            .then(json => dispatch({ type: 'GET_CATEGORIES_SUCCESS', payload: json }))
-            .catch(error => dispatch({ type: 'GET_CATEGORIES_ERROR', payload: error }))
-    )
+export const getOrder = () => dispatch => {
+    fetch('https://614efc3db4f6d30017b4842e.mockapi.io/api/v1//orderHistory')
+        .then(response => response.json())
+        .then(json => dispatch({ type: 'GET_ORDER', payload: json }))
 }
 
-export const getComponents = () => dispatch => {
-    return (
-        fetch('https://614efc3db4f6d30017b4842e.mockapi.io/api/v1//components')
-            .then(response => response.json())
-            .then(json => dispatch({ type: 'GET_COMPONENTS_SUCCESS', payload: json }))
-            .catch(error => dispatch({ type: 'GET_COMPONENTS_ERROR', payload: error }))
-    )
+/*Get Requests Actions*/
+
+/*Post Request Actions */
+
+export const postOrderAction = (basket, user) => dispatch => {
+    fetch("https://614efc3db4f6d30017b4842e.mockapi.io/api/v1/orderHistory", {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify({ orders: basket, user: user })
+    })
 }
 
-/*Http Requests Actions*/
+/*Post Request Actions */
 
 
 /*Basket Actions */
@@ -58,13 +60,13 @@ export const subQuantity = (product) => {
 };
 
 export const emptyBasket = () => {
-    return { type: 'EMPTY_BASKET'}
+    return { type: 'EMPTY_BASKET' }
 };
 
 /*User Action */
 
 export const isLogin = (user) => {
-    return {type: 'SET_USER' , payload: user}
+    return { type: 'SET_USER', payload: user }
 }
 
 /*User Action */

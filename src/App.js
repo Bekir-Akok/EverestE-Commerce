@@ -1,33 +1,41 @@
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from './Pages/HomePage/Home';
 import CategoryPage from './Pages/CategoryPage/CategoryPage';
 import ProductPage from './Pages/ProductPage/ProductPage';
 import BasketPage from './Pages/BasketPage/BasketPage';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LoginPage from './Pages/LoginPage/LoginPage';
 import RegisterPage from './Pages/RegisterPage/RegisterPage';
+import ProfilePage from './Pages/ProfilePage/ProfilePage';
+import OrderPage from './Pages/OrderPage/OrderPage';
 
 const App = () => {
   return (
     <>
       <Router>
         <Switch>
+          <Route exact path="/orders">
+            <OrderPage />
+          </Route>
+          <Route exact path="/profilepage/:displayName">
+            <ProfilePage />
+          </Route>
           <Route exact path="/register">
-            <RegisterPage/>
+            <RegisterPage />
           </Route>
           <Route exact path="/login">
-            <LoginPage/>
+            <LoginPage />
           </Route>
           <Route exact path="/basket">
-            <BasketPage/>
+            <BasketPage />
           </Route>
           <Route exact path="/productpage/:product">
-            <ProductPage/>
+            <ProductPage />
           </Route>
           <Route exact path="/categorypage/:category">
-            <CategoryPage/>
+            <CategoryPage />
           </Route>
           <Route exact path="/">
-            <Home/>
+            <Home />
           </Route>
         </Switch>
       </Router>

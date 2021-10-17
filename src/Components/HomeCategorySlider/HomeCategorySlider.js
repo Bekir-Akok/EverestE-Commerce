@@ -1,22 +1,12 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { getCategories } from '../../Redux/Actions/action';
+import React from 'react'
+import { categories } from './_homeCategorySliderData';
 import Slider from "react-slick";
-import './homeCategorySlider.scss';
 import { useHistory } from 'react-router';
+import './homeCategorySlider.scss';
 
-const HomeCategorySlider = props => {
-
-    
-    const dispatch = useDispatch();
-    const categories = useSelector(state => state.requestReducer.categories)
-    const categoriesLoaing = useSelector(state => state.requestReducer.categories)
+const HomeCategorySlider = () => {
 
     let history = useHistory()
-
-    useEffect(() => {
-        dispatch(getCategories())
-    }, [])
 
     let settings = {
         dots: false,
@@ -56,9 +46,7 @@ const HomeCategorySlider = props => {
 
     return (
         <>
-        {
-            categoriesLoaing ? (
-                <Slider {...settings}>
+            <Slider {...settings}>
                 {
                     categories.map((category, i) => (
                         <div className="home-category-slider" key={i} onClick={() => history.push(`/categorypage/${category.categories}`)}>
@@ -73,10 +61,7 @@ const HomeCategorySlider = props => {
                     ))
                 }
             </Slider>
-            ) : <img src="https://miro.medium.com/max/1400/1*CsJ05WEGfunYMLGfsT2sXA.gif" alt="" />
-        }
-
-</>
+        </>
     )
 }
 
