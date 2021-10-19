@@ -7,11 +7,13 @@ import LoginPage from './Pages/LoginPage/LoginPage';
 import RegisterPage from './Pages/RegisterPage/RegisterPage';
 import ProfilePage from './Pages/ProfilePage/ProfilePage';
 import OrderPage from './Pages/OrderPage/OrderPage';
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 
 const App = () => {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Switch>
           <Route exact path="/orders">
             <OrderPage />
