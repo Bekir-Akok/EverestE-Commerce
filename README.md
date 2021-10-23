@@ -48,8 +48,7 @@
       </a>
     </li>
 </ul>
-
-            </div>
+</div>
 
 The project continues..
 Full stack e-commerce site where I handle all the topics and concepts of React.
