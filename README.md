@@ -8,9 +8,6 @@
 <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=bekir-akok&show_icons=true&locale=en&layout=compact&theme=chartreuse-dark" alt="ovi" /></p>
 <br><br><br><br><br>
 
-
-<img src="https://github.com/Bekir-Akok/github-stats/blob/master/generated/languages.svg"/>
-
 The project continues..
 Full stack e-commerce site where I handle all the topics and concepts of React.
 
