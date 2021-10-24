@@ -5,8 +5,8 @@
 <p align="center">
  <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="30px" alt="Git"/>&nbsp;<i><b>Project Overview</b></i></p>
  
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=bekir-akok&show_icons=true&locale=en&layout=compact&theme=chartreuse-dark" alt="ovi" /></p>
-<br><br><br><br><br>
+<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=bekir-akok&show_icons=true&locale=en&layout=compact&theme=chartreuse-dark" alt="ovi" /></p>
+<br><br><br><br><br/>
 
 The project continues..
 Full stack e-commerce site where I handle all the topics and concepts of React.
